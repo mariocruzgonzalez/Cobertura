@@ -8,6 +8,7 @@ package com.wizeline.springboot.otd;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  * @author orlando.rincon@wizeline.com
@@ -49,5 +50,15 @@ public class OTDPaisTest {
         Integer poblacion = otdPais.getPoblacion();
 
         assertEquals (54321, poblacion);
+    }
+
+    @Test
+    public void DadoUnOTDAjenoALaClase_CuandoSeValidaIgualdad_RegresaFalsa() {
+        OTDPais otdPais = new OTDPais("PAIS", 12345);
+        String testString = "This is a String";
+
+        boolean isEqual = otdPais.equals(testString);
+
+        assertFalse(isEqual);
     }
 }
