@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 /**
  * @author orlando.rincon@wizeline.com
@@ -43,4 +44,17 @@ public class EntidadPais {
     public Integer obtenerPoblacion () {
         return this.poblacion;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        EntidadPais that = (EntidadPais) o;
+
+        if (!Objects.equals(id, that.id)) return false;
+        if (!Objects.equals(nombre, that.nombre)) return false;
+        return Objects.equals(poblacion, that.poblacion);
+    }
+
 }
