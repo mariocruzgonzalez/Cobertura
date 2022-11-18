@@ -48,4 +48,11 @@ public class OTDPais {
         return this.nombre != null && this.poblacion != null && this.nombre.equals(otro.nombre)
                 && this.poblacion.equals(otro.poblacion);
     }
+
+    @Override
+    public int hashCode() {
+        int result = nombre != null ? nombre.hashCode() : 0;
+        result = 31 * result + (poblacion != null ? poblacion.hashCode() : 0);
+        return result;
+    }
 }
